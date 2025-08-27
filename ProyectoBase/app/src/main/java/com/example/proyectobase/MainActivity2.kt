@@ -15,10 +15,6 @@ MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main2)
-
-
-
-
         val btnCalculadora: Button = findViewById(R.id.btn_abrir_calculadora)
 
         btnCalculadora.setOnClickListener{

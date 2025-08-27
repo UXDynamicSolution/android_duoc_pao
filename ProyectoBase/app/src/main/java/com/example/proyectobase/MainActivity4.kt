@@ -49,3 +49,25 @@ class MainActivity4 : AppCompatActivity() {
         }
     }
 }
+
+/**
+ * val db = DbConn(this)
+ *
+ * // INSERT
+ * val id = db.insertUser(User(name = "Carlos", email = "carlos@correo.com"))
+ *
+ * // SELECT
+ * val user = db.getUserById(id)
+ * println("Usuario: $user")
+ *
+ * // UPDATE
+ * db.updateUser(id, "Carlos Muñoz", "cmunoz@correo.com")
+ *
+ * // SELECT ALL
+ * val users = db.getAllUsers()
+ * users.forEach { println(it) }
+ *
+ * // DELETE
+ * db.deleteUser(id)
+ *
+ */
