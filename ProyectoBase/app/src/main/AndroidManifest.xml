@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- PERMISO ACCESO A INTERNET -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- PERMISO ACCESO A ESTADO DE LA CONEXION A INTERNET -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- PERMISO ACCESO A ESTADO DE LA CONEXION A INTERNET -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -16,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoBase"
         tools:targetApi="31">
+        <activity
+            android:name=".AcInsertApiAlumnos"
+            android:exported="false" />
         <activity
             android:name=".SpinnerRegionComuna"
             android:exported="false" />
