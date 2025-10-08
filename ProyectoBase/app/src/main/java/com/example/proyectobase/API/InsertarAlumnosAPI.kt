@@ -1,12 +1,10 @@
-package com.example.proyectobase.funciones
+package com.example.proyectobase.API
 
 import android.content.Context
 import android.util.Base64
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import com.example.proyectobase.API.AlumnoInsertRequest
-import com.example.proyectobase.API.AlumnosRepository
 import kotlinx.coroutines.launch
 
 object InsertarAlumnosAPI {

@@ -10,13 +10,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.proyectobase.funciones.InsertarAlumnosAPI
-import com.example.proyectobase.funciones.Quadruple
+import com.example.proyectobase.API.InsertarAlumnosAPI
 
 class AcInsertApiAlumnos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+
         setContentView(R.layout.activity_ac_insert_api_alumnos)
 
         val edNombre: EditText = findViewById(R.id.ed_nombre)
@@ -73,6 +74,7 @@ class AcInsertApiAlumnos : AppCompatActivity() {
         spGrupo.adapter = adapter
 
 
+
         btnSave.setOnClickListener {
             InsertarAlumnosAPI.insertarAlumno(
                 owner = this,
@@ -94,30 +96,6 @@ class AcInsertApiAlumnos : AppCompatActivity() {
                 }
             )
         }
-
-        /*
-        fun leerFormulario(): Quadruple<String, String, String, String>? {
-            val nombre  = edNombre.text.toString().trim()
-            val apellido= edApellido.text.toString().trim()
-            val grupo   = spGrupo.selectedItem?.toString()?.trim().orEmpty()
-            val seccion = spSeccion.selectedItem?.toString()?.trim().orEmpty()
-
-            if (nombre.isEmpty() || apellido.isEmpty() || grupo.isEmpty() || seccion.isEmpty()) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
-                return null
-            }
-            return Quadruple(nombre, apellido, grupo, seccion)
-        }
-*/
-        /*
-         *
-
-        fun onInsertApiClick() {
-            val data = leerFormulario() ?: return
-            val (nombre, apellido, grupo, seccion) = data
-        }
-
-         */
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
