@@ -2,8 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- PERMISO ACCESO A INTERNET -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- PERMISO ACCESO A ESTADO DE LA CONEXION A INTERNET -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- PERMISO CAMARA, LECTURA Y ESCRITURA EN SISTEMA DE ARCHIVOS -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoBase"
         tools:targetApi="31">
+        <activity
+            android:name=".MainActivity7Canara"
+            android:exported="false" />
         <activity
             android:name=".AcInsertApiAlumnos"
             android:exported="false" />
