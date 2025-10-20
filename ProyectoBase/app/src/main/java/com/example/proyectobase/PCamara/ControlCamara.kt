@@ -3,6 +3,7 @@ package com.example.proyectobase.PCamara
 import java.io.File
 import java.util.concurrent.ExecutorService
 import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
 import java.text.SimpleDateFormat
 import java.util.Locale
 
