@@ -12,11 +12,14 @@ import java.nio.ByteBuffer
 
 class CameraManager(private val context: Context) {
 
+    //variable para almacenar la imagen
     private var imageCapture: ImageCapture? = null
 
+    //metodo que inicializa la camara y carga el elemento preview view
     fun startCamera(previewView: PreviewView) {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
 
+        //listener camera y seteo del preview view
         cameraProviderFuture.addListener({
             val cameraProvider = cameraProviderFuture.get()
 
@@ -24,10 +27,13 @@ class CameraManager(private val context: Context) {
                 setSurfaceProvider(previewView.surfaceProvider)
             }
 
+            //variable de configuracion de la imagen capturada, setea el modo y la despliega
             imageCapture = ImageCapture.Builder()
                 .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
                 .build()
 
+            //control de excepciones con una corrutina para mostrar en preview view sin
+            //alterar el flujo principal
             try {
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(
@@ -42,6 +48,7 @@ class CameraManager(private val context: Context) {
         }, ContextCompat.getMainExecutor(context))
     }
 
+    //funcion tomar foto genera y retorna un bitmap
     fun takePhoto(onResult: (Bitmap?) -> Unit) {
         val capture = imageCapture ?: return
 
