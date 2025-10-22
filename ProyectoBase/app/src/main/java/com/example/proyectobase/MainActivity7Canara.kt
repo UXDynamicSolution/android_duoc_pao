@@ -57,6 +57,8 @@ class MainActivity7Canara : AppCompatActivity() {
                     val base64 = CamaraUtils.convertirDeBitMapABase64(bitmap)
                     Log.d("BASE64", base64.take(100) + "...")
                     Toast.makeText(this, "Foto capturada", Toast.LENGTH_SHORT).show()
+
+
                 } else {
                     Toast.makeText(this, "Error al capturar", Toast.LENGTH_SHORT).show()
                 }

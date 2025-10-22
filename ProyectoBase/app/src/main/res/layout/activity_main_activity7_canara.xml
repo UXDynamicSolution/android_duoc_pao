@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -19,6 +20,27 @@
         app:layout_constraintVertical_bias="0.065"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
+
+
+    <Button
+        android:id="@+id/btn_tomar_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tomar Foto"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="523dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_carga_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="588dp"
+        android:text="Cargar Foto"
+        app:layout_constraintTop_toBottomOf="parent"
+        tools:layout_editor_absoluteX="77dp"
+        tools:ignore="MissingConstraints" />
+
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
         android:layout_width="0dp"
@@ -33,22 +55,6 @@
 
     </androidx.camera.view.PreviewView>
 
-    <Button
-        android:id="@+id/btn_carga_foto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="588dp"
-        android:text="Cargar Foto"
-        app:layout_constraintTop_toBottomOf="parent"
-        tools:layout_editor_absoluteX="77dp" />
-
-    <Button
-        android:id="@+id/btn_tomar_foto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tomar Foto"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="523dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
