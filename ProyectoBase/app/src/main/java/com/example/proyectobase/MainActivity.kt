@@ -2,6 +2,8 @@ package com.example.proyectobase
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 import com.example.proyectobase.funciones.ValidarConexionWAN
 
 class MainActivity : AppCompatActivity() {
@@ -39,13 +42,66 @@ class MainActivity : AppCompatActivity() {
         var usuarioBase = "admin"
         var passwBase = "admin"
 
+        var valUsername:Boolean = false
+        var valPassword:Boolean = false
+
+        //boton por defecto desactivado
+        btnLogin.isEnabled = false
+
+        /***
+         * validaciones (en proceso)
+         * - evento addTextChargedListener
+         * -- revisar con banderas comportamiento
+         */
+        edUsername.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                valUsername = true
+
+            }
+
+        }
+
+        )
+
+        edPasswd.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+                btnLogin.isEnabled = false
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if(valUsername == true && edUsername.text.toString() != ""){
+                    valPassword = true
+                }
+
+                if(valUsername == true && valPassword == true){
+                    btnLogin.isEnabled = true
+                }
+
+            }
+
+        }
+
+        )
+
         btnLogin.setOnClickListener {
 
             if(edUsername.text.toString() == usuarioBase
                 && edPasswd.text.toString() == passwBase){
 
                 // creo un objeto intent
-                val nuevaVentana = Intent(this, MainActivity7Canara::class.java)
+                val nuevaVentana = Intent(this, AcInsertApiAlumnos::class.java)
                 var ses_username = edUsername.text.toString()
 
                 nuevaVentana.putExtra("sesion",ses_username )
@@ -57,6 +113,9 @@ class MainActivity : AppCompatActivity() {
                 txMensaje.text = "login OK"
             }else{
                 txMensaje.text = "login NO"
+                btnLogin.isEnabled = false
+                edUsername.setText("")
+                edPasswd.setText("")
             }
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
